@@ -9,5 +9,6 @@
     <toc-element topic="Introduction.md"/>
     <toc-element topic="Binary-format.md"/>
     <toc-element topic="NanoPack-Schema.md">
+        <toc-element topic="NanoPack-Data-Types.md"/>
     </toc-element>
 </instance-profile>
