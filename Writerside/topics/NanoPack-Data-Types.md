@@ -14,7 +14,15 @@ NanoPack supports the following data types:
 
 NanoPack also supports UTF8-encoded strings. Use `string` as the type keyword.
 
+## Booleans
+
+Use `bool` to denote a boolean field.
+
 ## Messages
+
+> This is still currently being implemented!
+>
+{style="warning"}
 
 NanoPack supports using other NanoPack messages as types.
 A message field can store a message of another message type, or even of its own type (recursive types).
@@ -36,4 +44,40 @@ NanoPack also supports nested arrays. `string[][]`, for example, declares an arr
 
 ## Maps
 
-Maps are currently being implemented!
+NanoPack supports maps as well. Only strings and number types can be used as map keys, but map values can be of any type.
+Maps can store up to 4,294,967,296 entries.
+
+To declare a map type, use the following syntax:
+
+```
+<key-type:value-type>
+```
+
+For example, to declare a field `my_field` that stores map of string to 32-bit integers:
+
+```yaml
+my_field: <string:int32>:1
+```
+
+## Type nesting
+
+Since arrays and maps can store values of any type, you can go ham with the type!
+
+```yaml
+CrazyMessage:
+  # Array of map of string to int32
+  field_1: <string:int32>[]:0
+
+  # Map of int32 to string arrays
+  field_2: <int32:string[]>:1
+
+  # Array of map of strings to string arrays
+  field_3: <string:string[]>[]:2
+
+  # Map of strings to map of int32 to int8
+  field_4: <string:<int32:int8>>:4
+```
+
+> Please use this feature responsibly.
+> 
+{style="note"}
