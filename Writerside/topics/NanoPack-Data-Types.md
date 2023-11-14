@@ -18,21 +18,6 @@ NanoPack also supports UTF8-encoded strings. Use `string` as the type keyword.
 
 Use `bool` to denote a boolean field.
 
-## Messages
-
-> This is still currently being implemented!
->
-{style="warning"}
-
-NanoPack supports using other NanoPack messages as types.
-A message field can store a message of another message type, or even of its own type (recursive types).
-
-To use another message as a type, simply use its name as the type name. No import statement is required to make it available.
-
-> If you use other messages as types, make sure their schema files are compiled together with the schema file they are used in
-> 
-{style="note"}
-
 ## Arrays
 
 NanoPack supports arrays of any NanoPack types. The array can store up to 4,294,967,296 elements.
@@ -58,6 +43,39 @@ For example, to declare a field `my_field` that stores map of string to 32-bit i
 ```yaml
 my_field: <string:int32>:1
 ```
+
+## Optional
+
+A type can be made optional by adding a question mark (`?`) at the end of a type:
+
+```yaml
+# an optional array of string
+field_1: string[]?:1
+
+# an array of optional strings
+field_2: string?[]:2
+```
+
+Except keys of maps, any type can be made optional.
+
+## Messages
+
+> This is still currently being implemented!
+>
+{style="warning"}
+
+NanoPack supports using other NanoPack messages as types.
+A message field can store a message of another message type, or even of its own type (recursive types).
+
+To use another message as a type, simply use its name as the type name. No import statement is required to make it available.
+
+> If you use other messages as types, make sure their schema files are compiled together with the schema file they are used in
+>
+{style="note"}
+
+> Fields that have recursive types (i.e. fields that use the message it is in as its type) must be optional.
+>
+{style="note"}
 
 ## Type nesting
 
