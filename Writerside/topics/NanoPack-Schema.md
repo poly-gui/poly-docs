@@ -1,12 +1,12 @@
-# NanoPack Schema
+# Defining Messages
 
-Every NanoPack message must be defined in a NanoPack schema, which is just a YAML config object describing the shape of the message.
+Every NanoPack message is defined in a NanoPack schema, which is just a YAML config object describing the message.
 
-## Syntax reference
+## Schema Syntax
 
 ```yaml
 <MessageNameInPascalCase>:
-  type_id: 1 # required
+  typeid: 1 # required
   <my_field>: <data-type>:<field-number>
   <my_second_field>: <data-type>:<field-number>
   # ...
@@ -50,7 +50,7 @@ Below is a simple NanoPack schema that defines a message called `Person`:
 
 ```yaml
 Person:
-  type_id: 1
+  typeid: 1
   first_name: string:0
   last_name: string:1
   age: int8:2
@@ -59,8 +59,18 @@ Person:
 
 `Person` has the following properties:
 
-- It has a type ID of 1
-- It has a `first_name` field which stores a string and has a field number of 0.
-- It has a `last_name` field which stores a string and has a field number of 1.
-- It has an `age` field which stores an 8-bit integer and has a field number of 2.
-- It has a `frields` field which stores an array of `Person`s and has a field number of 3.
+{type="narrow"}
+typeid
+: Person has a type ID of 1
+
+first_name
+: A string field with a field number of 0
+
+last_name
+: A string field with a field number of 1
+
+age
+: A field that stores an 8-bit integer and has a field number of 2
+
+friends
+: A field that stores an array of `Person`s and has a field number of 3.

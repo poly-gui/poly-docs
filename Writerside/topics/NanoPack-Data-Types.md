@@ -20,9 +20,7 @@ Use `bool` to denote a boolean field.
 
 ## Arrays
 
-NanoPack supports arrays of any NanoPack types. The array can store up to 4,294,967,296 elements.
-
-Simply add a pair of square brackets `[]` to the end of a type to make it an array of that type.
+NanoPack supports arrays of any NanoPack types.  Simply add a pair of square brackets `[]` to the end of a type to make it an array of that type.
 For example, a string array is declared as `string[]`.
 
 NanoPack also supports nested arrays. `string[][]`, for example, declares an array of string arrays.
@@ -30,7 +28,6 @@ NanoPack also supports nested arrays. `string[][]`, for example, declares an arr
 ## Maps
 
 NanoPack supports maps as well. Only strings and number types can be used as map keys, but map values can be of any type.
-Maps can store up to 4,294,967,296 entries.
 
 To declare a map type, use the following syntax:
 
@@ -60,10 +57,6 @@ Except keys of maps, any type can be made optional.
 
 ## Messages
 
-> This is still currently being implemented!
->
-{style="warning"}
-
 NanoPack supports using other NanoPack messages as types.
 A message field can store a message of another message type, or even of its own type (recursive types).
 
@@ -73,7 +66,7 @@ To use another message as a type, simply use its name as the type name. No impor
 >
 {style="note"}
 
-> Fields that have recursive types (i.e. fields that use the message it is in as its type) must be optional.
+> Fields that have recursive types (i.e. fields that use the message it is in as its type) are automatically marked as optional.
 >
 {style="note"}
 

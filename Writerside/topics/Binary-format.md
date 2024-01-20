@@ -48,6 +48,8 @@ For example, a field that stores a 32-bit integer always use 4 bytes, so its siz
 On the other hand, fields that store, for example, strings, will have dynamic size, and their size headers will contain
 the number of bytes used by the string.
 
+### Partial Deserialization
+
 Size header allows NanoPack to *partially de-serialize* a message.
 That is, NanoPack is able to de-serialize one particular field, without having to de-serialize all the previous fields.
 For example, to read the content of field 3, the offset can be calculated by adding the size of the type ID (4 bytes), size header (12 bytes), and the sizes of previous fields,
@@ -59,7 +61,7 @@ offset for field 3 = 4 + (4 * 3) + <size of field 0> + <size of field 1> + <size
 
 ## Data Section
 
-The data section follows immediately after the size header. This is where the actual raw data of all the fields go. Nothing special to talk about here.
+The data section follows immediately after the size header. This is where the actual raw data of all the fields go.
 
 ## NanoPack Limits
 
